@@ -1,6 +1,6 @@
 /*
  A. Sereja and Dima
- 
+
 time limit per test1 second
 memory limit per test256 megabytes
 inputstandard input
@@ -17,45 +17,67 @@ Output
 On a single line, print two integers. The first number is the number of Sereja's points at the end of the game, the second number is the number of Dima's points at the end of the game.
 
 
+Examples
+
+inputCopy
+4
+4 1 2 10
+outputCopy
+12 5
+
+
+inputCopy
+7
+1 2 3 4 5 6 7
+outputCopy
+16 12
 */
 
 #include <iostream>
 #include <list>
 #include <string>
 using namespace std;
- 
- 
-int main() {
+
+int main()
+{
     int size;
-    cin>>size;
+    cin >> size;
     int arr[size];
-    for(int i =0;i<size;i++){
-        cin>>arr[i];
+    for (int i = 0; i < size; i++)
+    {
+        cin >> arr[i];
     }
-    
-    int start =0;
-    int end = size -1;
-    int r1 =0;
-    int r2=0;
-    int max=0;
-    int play=0;
-    
-    while(start<=end){
-        if(arr[start] >= arr[end]){
-            max =arr[start];
+
+    int start = 0;
+    int end = size - 1;
+    int r1 = 0;
+    int r2 = 0;
+    int max = 0;
+    int play = 0;
+
+    while (start <= end)
+    {
+        if (arr[start] >= arr[end])
+        {
+            max = arr[start];
             start++;
-        }else{
+        }
+        else
+        {
             max = arr[end];
             end--;
         }
-        
-        if(play %2 ==0){
+
+        if (play % 2 == 0)
+        {
             r1 += max;
-        }else{
+        }
+        else
+        {
             r2 += max;
         }
         play++;
     }
-    
-    cout<<r1<< " " << r2<<endl;
+
+    cout << r1 << " " << r2 << endl;
 }
